@@ -6,18 +6,33 @@ public class Movement : MonoBehaviour
 
     public float maxSpeed = 5f;
 
-
-    // Update is called once per frame
-    void Update()
+    void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.x--;
+            this.transform.position = position;
 
-        Vector3 pos = transform.position;
-
-        pos.y += Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime;
-
-        pos.x += Input.GetAxis("Horizontal") * maxSpeed * Time.deltaTime;
-
-        transform.position = pos;
-
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.x++; 
+            this.transform.position = position;                         
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.y++;
+            this.transform.position = position;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Vector3 position = this.transform.position;
+            position.y--;
+            this.transform.position = position;
+        }
     }
+    
 }
